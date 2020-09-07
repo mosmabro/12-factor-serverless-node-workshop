@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      # Install dependencies needed for running tests
+      - cd UploadTrigger
+      - npm install
+      - cd ..
+      - cd NOOP
+      - npm install
+      - cd ..
+
+      # Upgrade AWS CLI to the latest version
+      - pip install --upgrade awscli
+  build:
+    commands:
+      # Use AWS SAM to package the application using AWS CloudFormation
+      - aws cloudformation package --template template.yml --s3-bucket $BUILD_OUTPUT_BUCKET --output-template-file template-export.yml
+cache:
+  paths:
+    - 'node_modules/**/*'
+artifacts:
+  type: zip
+  files:
+    - template-export.yml
