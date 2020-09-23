@@ -442,7 +442,9 @@ The system so far is functional, but incomplete. In this task you will implement
 
 #### Implement the AWS Step Function to implement the {{cookiecutter.project_name}} system workflow logic
 
-Note that this section requires you to manually create the AWS Step Function workflow from scratch.
+Please do this step only if you would like to skip this section: **Replace** file `Process/template.yml` with file `Process/template.full.yml` then jump to step 94.
+
+Note that this section requires you to manually create the AWS Step Function workflow from scratch. 
 
 89. [Click on this link](https://{{cookiecutter.AWS_region}}.console.aws.amazon.com/states/home?region={{cookiecutter.AWS_region}}#/statemachines) to open the AWS Step Functions console and see a list of the available state machines.
 90. Click on the link for the *{{cookiecutter.stepfunction_name}}-Staging* state machine
